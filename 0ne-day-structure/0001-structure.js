@@ -23,3 +23,6 @@ const removeDuplicates = (array)=>{
 // 调用
 const nums = [1,1,2,3,3,4,5,5,6,6,7,7,8,9];
 console.log(removeDuplicates(nums));
+
+/** 我的疑惑就是1：为什么我输出的是位置id，不是一个全新的数组？？ */
+/** 我的疑惑就是2：是否可以冒泡算法做这个问题？？？ */
