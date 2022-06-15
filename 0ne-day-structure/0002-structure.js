@@ -18,18 +18,18 @@
 
 // 官方的解答
 //方法一：使用额外的数组
-// const rotate_01 = (arrs,k)=>{
-//   let len = arrs.length;
-//   const newArr = new Array(len);
-//   arrs.forEach((num,i) => {
-//     newArr[(i+k)%len] = num;
-//   });
-//   newArr.forEach((num,i) => {
-//     arrs[i] = num
-//   });
-//   console.log(arrs);
-// }
-// rotate_01(arrs,3);
+const rotate_01 = (arrs,k)=>{
+  let len = arrs.length;
+  const newArr = new Array(len);
+  arrs.forEach((num,i) => {
+    newArr[(i+k)%len] = num;
+  });
+  newArr.forEach((num,i) => {
+    arrs[i] = num
+  });
+  console.log(arrs);
+}
+rotate_01(arrs,3);
 
 // 方法二：我的想法
 // const arrs = [1,2,3,4,5,6,7,8,9,0];
