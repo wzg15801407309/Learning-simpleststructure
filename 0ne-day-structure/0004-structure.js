@@ -29,3 +29,30 @@
   }
   return rev >>> 0;
 };
+const n = 111111111111111110000000000000000;
+console.log(reverseBits(n));
+
+// 不理解为什么输出的事是0
+
+const  exchangeBits =(num) =>{
+
+  const  RNAGE = 31;
+
+  for (let i = 0; i <= RNAGE; i += 2)
+  {
+      let evenBit = num & (1 << i); // 取偶数位的值
+      let oddBit = num & (1 << i + 1); // 取奇数位的值
+
+      num &= ~(1 << i); // 将偶数位的值置零
+      num &= ~(1 << i + 1); // 将奇数位的值置零
+
+      num |= (evenBit << 1); // 将取出的奇数位左移1位
+      num |= (oddBit >> 1); // 将取出的偶数位右移1位
+  }
+
+  return num;
+}
+console.log(exchangeBits(n));
+
+
+//这个没有弄明白
