@@ -46,5 +46,33 @@ const intersect = (nums1, nums2)=>{
 
 console.log(intersect(testArray1,testArray2));
 
+// 哈希表
+const intersectMap = (nums1, nums2)=>{
+  // 使nums1是个数最长的数组
+  if(nums1.length<nums2.length){
+    [nums1,nums2] = [nums2,nums1]
+  }
+    const map = {};
+    const res = [];
+  // 先遍历长数组，记录各个数据出现的频次 也就是 nums1
+  for (const num of nums1) {
+    if(map[num]){
+      map[num]++;
+    }else{
+      map[num] = 1;
+    }
+  }
+  // 循环遍历短数组
+  for (const num2 of nums2) {
+    // 查看当前 num2中有没有，有就会有值
+    const val = map[num2];
+    if(val>0){
+      res.push(num2);
+      map[num2]--;
+    }
+  }
+  return res;
+};
 
+console.log(intersectMap(testArray2,testArray1));
 console.log('************* normal end ******************')
