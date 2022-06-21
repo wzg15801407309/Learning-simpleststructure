@@ -6,7 +6,7 @@
  * 思路：先给数据排序，这样相同的数据就会在相邻的位置上。
  */ 
 // const containsDuplicate = nums=>{
-//   nums.sort();
+//   nums.sort((a,b)=> a-b);
 //   for (let i = 0; i < nums.length-1; i++) {
 //     if(nums[i] == nums[i+1]){
 //       return true;

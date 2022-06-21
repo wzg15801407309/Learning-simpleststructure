@@ -25,6 +25,7 @@ const singleNumber_normal = nums =>{
   let res = 0;
   for (let i = 0; i < nums.length; i++) {
     res ^= nums[i];
+    // res ^=nun[i] ==> res =res ^ num[i] 相同为0 不同为1 ；
   }
   console.log(res);
 }
