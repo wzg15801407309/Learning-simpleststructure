@@ -19,10 +19,9 @@ const myTwoSum = (nums, target) =>{
   const len =nums.length;
   for (let i = 0; i < len; i++) {
     const cha = target - nums[i];
-    for (let j = i+1; j < len; j++) {
-        if(nums[j] == cha){
-          return [i,j]
-        }
+    const index = nums.indexOf(cha);
+    if( index!==-1 && i!=index){
+      return[i,index]
     }
   }
   return [];
@@ -35,14 +34,33 @@ const myTwoSum2 = (nums, target) =>{
   const len =nums.length;
   for (let i = 0; i < len; i++) {
     const cha = target - nums[i];
-   
+    for (let j = i+1; j < len; j++) {
+        if(nums[j] == cha){
+          return [i,j]
+        }
+    }
   }
   return [];
 }
-console.log(myTwoSum(nums,target));
+console.log(myTwoSum2(nums,target));
 
 console.log('************* me end ******************')
 
 
 console.log('************* normal start ****************')
+// 最优 Map  set/has/get  {key:value,key:value,......}
+const twoSum = (nums,target)=>{
+  if(nums.length<2) return [];
+  const len =nums.length;
+  const map = new Map();
+  for (let i = 0; i < len; i++) {
+      const cha = target - nums[i];
+      if(map.has(cha)){
+        return [map.get(cha),i]
+      }
+      map.set(nums[i],i);
+  }
+  return [];
+};
+console.log(twoSum(nums,target));
 console.log('************* normal end ******************')
