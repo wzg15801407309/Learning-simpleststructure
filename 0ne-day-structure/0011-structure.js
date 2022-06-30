@@ -1,0 +1,59 @@
+/** 
+ * 题目：请你判断一个 9 x 9 的数独是否有效。只需要 根据以下规则 ，验证已经填入的数字是否有效即可。
+ * 规则：数字 1-9 在每一行只能出现一次。数字 1-9 在每一列只能出现一次。
+ * 题意：就是给一个 9*9的二维数组，看
+*/
+const board =
+[
+  ["5","3",".",".","7",".",".",".","."],
+  ["6",".",".","1","9","5",".",".","."],
+  [".","9","8",".",".",".",".","6","."],
+  ["8",".",".",".","6",".",".",".","3"],
+  ["4",".",".","8",".","3",".",".","1"],
+  ["7",".",".",".","2",".",".",".","6"],
+  [".","6",".",".",".",".","2","8","."],
+  [".",".",".","4","1","9",".",".","5"],
+  [".",".",".",".","8",".",".","7","9"]
+]
+console.log('************* me start ****************')
+const isValidSudoku = (board) =>{
+  // 行的检测
+  let row = 0;
+  let list = 0;
+  const rowset =  new Set();
+  const listset =  new Set();
+  // 行的处理
+  while(row<9){
+    // 行处理
+    const rowItem= board[row][list];
+    if(rowset.has(rowItem)){
+      console.log('row=',row,'rowItem=',rowItem);
+      return false
+    }else{
+      rowItem != '.' ? rowset.add(rowItem) :'';
+    }
+    // 列处理
+    const listItem = board[list][row];
+    if(listset.has(listItem)){
+      console.log('list=',list,'listItem=',listItem);
+      return false
+    }else{
+      listItem != '.' ? listset.add(listItem) :'';
+    }
+    list++;
+    if(list == 9 ){
+      row++;
+      list = 0;
+      rowset.clear();
+      listset.clear();
+    }
+  }
+  return true;
+}
+console.log(isValidSudoku(board));
+console.log('************* me end ******************')
+
+
+
+console.log('************* normal start ****************')
+console.log('************* normal end ******************')
