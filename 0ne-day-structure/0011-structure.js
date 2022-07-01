@@ -65,7 +65,7 @@ const isValidSudoku = board =>{
     for (let j = 0; j < len; j++) {
       const m = parseInt(i / 3)
       const n = parseInt(j / 3)
-      const idx = m * 3 + n // setList的索引 ??
+      const idx = m * 3 + n // 数独的规则之一，在3*3 的小格子里面也要有没有重复的数
       if(j === 0){
         rowSet.clear()
         columnSet.clear()
