@@ -7,7 +7,7 @@ console.log('************* me start ****************')
  * @param {string} s
  * @return {number}
 */
-const s = "-n,-12--  ";
+const s = "-+12--  ";
 const myAtoi_01 = (str)=> {
   const number = parseInt(str, 10);
   if(isNaN(number)) {
@@ -76,25 +76,26 @@ const myAtoi= (str)=> {
     get(char){
         // 每次传入时都要变更自动机的执行阶段
         this.state = this.map.get(this.state)[this.getIndex(char)];
-
+        console.log(this.state);
         if(this.state === 'in_number'){
           //  小技巧：在JS中，对字符串类型进行减法操作，可以将得到一个数值型（Number）的值
           this.answer = this.answer * 10 + (char - 0);
           // 正负判断
-          this.answer = this.sign === 1 ? Math.min(this.answer,Math.pow(2,31)-1):Math.min(this.answer,-Math.pow(2,31));
+          this.answer = this.sign === 1 ? Math.min(this.answer,Math.pow(2,31)-1) : Math.min(this.answer,-Math.pow(-2,31));
         }else if(this.state == 'signed' ){
-          this.sign = char==="+" ? 1:-1;
+          this.sign = char==="+" ? 1 : -1;
         }
+        console.log(this.answer);
       }
+      
   }
   // 生成自动机实例
   let automation = new Automaton();
-  console.log(automation);
   for (let char of str) {
     automation.get(char);
   }
   // 返回值 整数 = 正负*数值
-  return automation.sign * automation.answer;
+  return automation.answer== 0 ? 0 : automation.sign * automation.answer;
 };
 console.log(myAtoi(s));
 console.log('************* normal end ******************')
