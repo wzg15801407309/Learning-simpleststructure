@@ -10,7 +10,7 @@ const needle = "ll";
  * @param {string} needle
  * @return {number}
  */
-var myStrStr = function(haystack, needle) {
+const myStrStr = (haystack, needle)=> {
   if(!needle) return -1;
   const strlen = needle.length;
   for (let i = 0; i < haystack.length-strlen+1; i++) {
@@ -25,5 +25,9 @@ console.log('************* me end ******************')
 
 
 console.log('************* normal start ****************')
+// KMP  Knuth-Morris-Pratt 算法
+const strStr = (haystack, needle)=> {
+  
+}
 
 console.log('************* normal end ******************')
