@@ -18,7 +18,3 @@ const deleteNodeMy = (node) =>{  // 官方给出的答案，没有看明白
   node.next = node.next.next;
 };
 console.log('************* me end ******************')
-
-
-console.log('************* normal start ****************')
-console.log('************* normal end ******************')
