@@ -26,7 +26,7 @@ var myRob = function (nums) {
   return Math.max(singelNum, doubleNum);
 
 };
-console.log(myRob(nums));
+// console.log(myRob(nums));
 
 
 /**
@@ -38,12 +38,15 @@ var rob = function (nums) {
   if (len == 1) return nums[0]
   if (len == 2) return Math.max(nums[0], nums[1]);
   const dp = new Array(len + 1);
+  // dp 中存放的是偷i个房间的最大哦金额
   dp[0] = 0;
-  dp[1] = nums[1];
+  dp[1] = nums[0];
   for (let i = 2; i <= len; i++) {
-
+    // 第i间房可以选择 偷或者是不偷  
+    // 选择偷： 当前房间的最大利润 就是 当前房间的金额+（i-2）前个房间的最大金额   === dp[i] = nums[i]+dp[i-2]
+    // 选择不偷：dp[i] = dp[i-1]的最大金额
+    dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i - 1]);
   }
-
   return dp[len]
 };
 console.log(rob(nums));
