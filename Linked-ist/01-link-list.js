@@ -12,8 +12,8 @@ console.log('************* me start ****************')
 /**
  * @param {ListNode} node
  * @return {void} Do not return anything, modify node in-place instead.
- */ 
-const deleteNodeMy = (node) =>{  // 官方给出的答案，没有看明白
+ */
+const deleteNodeMy = (node) => {  // 官方给出的答案，没有看明白
   node.val = node.next.val;
   node.next = node.next.next;
 };
