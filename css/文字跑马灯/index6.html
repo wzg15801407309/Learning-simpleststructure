@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .pad_right {
+            padding-right: 2em;
+        }
+
+        #scroll_div {
+            height: 26px;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 92%;
+            margin-left: 4%
+        }
+
+        #scroll_begin, #scroll_end {
+            display: inline;
+        }
+</style>
+</head>
+<body>
+<div id="scroll_div" class="fl" style="margin-top:2rem;line-height:1.8rem">
+    <div id="scroll_begin" style="font-size:1rem;">
+        <span style="margin-left:12rem;">
+            观看完视频即可免费抽奖
+        </span>
+        中奖名单：
+        恭喜尾号为6657的用户抽中 <span class="pad_right">华为P30手机一部！</span>
+        恭喜尾号为8875的用户抽中 <span class="pad_right">IphoneX手机一部！</span>
+        恭喜尾号为3236的用户抽中 <span class="pad_right">荣耀X5手机一部！</span>
+        恭喜尾号为3236的用户抽中 <span class="pad_right">1000元现金！</span>
+        恭喜尾号为3236的用户抽中 <span class="pad_right">腾讯视频VIP月卡！</span>
+        恭喜尾号为3236的用户抽中 <span class="pad_right">小米8手机一部！</span>
+        恭喜尾号为3236的用户抽中 <span class="pad_right">888元现金</span>
+    </div>
+    <div id="scroll_end"></div>
+</div>
+<script>
+    ScrollImgLeft()
+    function ScrollImgLeft(speed = 1){
+        var speed = speed;
+        var MyMar = null;
+        var scroll_begin = document.getElementById("scroll_begin");
+        var scroll_end = document.getElementById("scroll_end");
+        var scroll_div = document.getElementById("scroll_div");
+        scroll_end.innerHTML=scroll_begin.innerHTML;
+        function Marquee(){
+            if(scroll_end.offsetWidth-scroll_div.scrollLeft<=0)
+                scroll_div.scrollLeft-=scroll_begin.offsetWidth;
+            else
+                scroll_div.scrollLeft++;
+        }
+        MyMar=setInterval(Marquee,speed);
+        scroll_div.onmouseover = function(){
+            clearInterval(MyMar);
+        }
+        scroll_div.onmouseout = function(){
+            MyMar = setInterval(Marquee,speed);
+        }
+    }
+</script>
+</body>
+</html>

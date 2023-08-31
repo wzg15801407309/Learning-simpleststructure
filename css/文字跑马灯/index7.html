@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            position: relative;
+            width: 150px;
+            overflow: hidden;
+        }
+
+        p {
+            display: inline-block;
+            white-space: nowrap;
+        }
+                p:hover {
+                    color: red;
+            animation: move 1.5s infinite alternate linear;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(calc(-100% + 150px), 0);
+            }
+        }
+            </style>
+
+</head>
+<body>
+    <div class="wrap">
+        <p>
+            大海阿娇哈卡啊的哈vAbba阿卡v把板块交界处是那么销售部hh
+        </p>
+    </div>
+   
+</body>
+</html>

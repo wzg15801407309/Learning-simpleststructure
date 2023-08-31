@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>走马灯</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .marquee-container {
+      /* position: relative; */
+      width: 370px;
+      height: 50px;
+      line-height: 50px;
+      background-color: cadetblue;
+      overflow: hidden;
+    }
+    .marquee-box {
+      /* position: absolute; */
+      display:flex;
+      color: #fff;
+      white-space: nowrap;
+      animation: marquee 3s linear infinite; /* 跑马灯动画 */
+    }
+    .marquee-container {
+    position: relative;
+}
+.marquee-box {
+    position: absolute;
+}
+.marquee-box:hover {
+   animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 0%;
+    transform: translateX(-100%);
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="marquee-container">
+    <div class="marquee-box">
+
+    </div>
+</div>
+</body>
+  <script>
+    let words = ["文字无缝滚动效果文字无缝滚动效果文字无缝滚动效果文字无缝滚动效果","由于大促期间订单量激增，您的订单送达时效可能出现延迟，请放到GV房供热供热上档次的身份为您耐心等待",'js实现左右自动切换']
+    let containerWidth = '370'// 跑马灯容器宽度
+    var box =  document.querySelector('.marquee-container .marquee-box');
+    console.error(box);
+    let boxWidth = '' // 跑马灯内容宽度
+    let html = ''
+    words.forEach(val => {
+      boxWidth+=val.length;
+      html += '<p style="margin-right:5px">'+val+'</p>';
+    });
+    box.innerHTML = html;
+    let duration = (boxWidth * 2 + containerWidth) / 1500 + 's' // 动画时间，这里我没有四舍五入，你可以进行四舍五入
+    console.error(duration)
+    document.querySelector('.marquee-container .marquee-box').style.animationDuration = 'animation-duration:' + duration
+  </script>
+</html>
