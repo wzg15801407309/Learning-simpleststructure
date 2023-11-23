@@ -20,7 +20,7 @@ let isPalindrome = (head) => {
   // 把链表的数据保存到数组中去
   while (head !== null) {
     arr.push(head.val);
-    head = head.next;
+    head = head.nex
   }
   // 使用双指针 
   for (let i = 0, j = arr.length - 1; i < j; ++i, --j) {
