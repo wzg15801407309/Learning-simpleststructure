@@ -1,8 +1,8 @@
 /**  LeetCode 热题 100 */
-/** 第37题
- * 题目：翻转二叉树
- * 题解：给你一棵二叉树的根节点 root ，翻转这棵二叉树，并返回其根节点。
- * 方案名称：递归
+/** 第38题
+ * 题目：二叉树的直径
+ * 题解：二叉树的直径是指：树中任意两个节点之间最长路径的 长度 。这条路径可能经过也可能不经过根节点 root 。
+ * 方法：左节点高度 + 右节点高度 + 1 递归
  */
 /**
  * Definition for a binary tree node.
@@ -14,18 +14,19 @@
  */
 /**
  * @param {TreeNode} root
- * @return {boolean}
+ * @return {number}
  */
-let isSymmetric = (root) => {
-  // 递归的方式
-  if (root == null) return true;
-  // 定义一个递归函数
-  const isSymmetricHelper = (left, right) => {
-    if (left == null && right == null) return true;
-    if (left == null || right == null || left.val != right.val) return false;
-
-    return isSymmetricHelper(left.left, right.right) && isSymmetricHelper(left.right, right.left);
+let diameterOfBinaryTree = (root) => {
+  let maxDiameter = 0;
+  let dfs = node => {
+    if (node == null) return 0;
+    // 左子树为根节点的深度
+    let leftMax = dfs(root.left);
+    let rightMax = dfs(root.right);
+    maxDiameter = Math.max(maxDiameter, leftMax + rightMax);
+    return Math.max(leftMax, rightMax) + 1;
   }
-  return isSymmetricHelper(root.left, root.right)
+  dfs(root);
+  return maxDiameter
 };
 
