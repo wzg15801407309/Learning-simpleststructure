@@ -17,7 +17,6 @@
  */
 let rightSideView = (root) => {
   if (!root) return [];
-  if (!root) return [];
   let arr = [];
 
   const dfs = (root, step, res) => {
