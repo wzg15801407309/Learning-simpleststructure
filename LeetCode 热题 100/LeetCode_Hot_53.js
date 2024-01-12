@@ -16,7 +16,7 @@ let searchMatrix = (matrix, target) => {
     let low = -1;
     let high = matrix.length - 1;
     while (low < high) {
-      const mid = Math.floor((high - row + 1) / 2) + low;
+      const mid = Math.floor((high - low + 1) / 2) + low;
       if (matrix[mid][0] <= target) {
         low = mid;
       } else {
@@ -43,5 +43,5 @@ let searchMatrix = (matrix, target) => {
   if (rowIndex < 0) {
     return false
   }
-  return binarySearchFirstColumn(matrix[rowIndex], target);
+  return binarySearchRow(matrix[rowIndex], target);
 };
