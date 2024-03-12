@@ -40,6 +40,5 @@ const sortColors = (nums) => {
       right--;
       i--;
     }
-
   }
 };
