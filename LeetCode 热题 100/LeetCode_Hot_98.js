@@ -6,7 +6,7 @@
       MedianFinder() 初始化 MedianFinder 对象。
       void addNum(int num) 将数据流中的整数 num 添加到数据结构中。
       double findMedian() 返回到目前为止所有元素的中位数。与实际答案相差 10-5 以内的答案将被接受。
- * 方案名称：xxxx
+ * 方案名称：没有懂
  */
 /**
  * 本方案使用两个优先级队列实现，其中一个为降序优先级队列（即小顶堆，记作A，其长度为m），
@@ -249,5 +249,4 @@ class CustomPriorityQueue {
     this.heap[i] = this.heap[j]
     this.heap[j] = temp
   }
-
 }
